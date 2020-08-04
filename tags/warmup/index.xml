@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>warmup on Ministry Of Pwning</title>
+    <link>/tags/warmup/</link>
+    <description>Recent content in warmup on Ministry Of Pwning</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>2020</copyright>
+    <lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/warmup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CaesarMirror Solution</title>
+      <link>/posts/caesar-mirror-sln/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/caesar-mirror-sln/</guid>
+      <description>The Problem: caesarmirror.txt
+The Clue: Caesar caesar, on the wall, who is the fairest of them all?
+Summary To me, this challenge served more as an example for working with CyberChef more than anything. Upon initial inspection of the cipher text (and the fact that the word mirror appeared in the title) it seemed obvious that there would be multiple reflections need in order to obtain the plaintext. After performing ROT13 on the input, it was obvious that the content to the right of the gap needed to be mirrored.</description>
+    </item>
+    
+  </channel>
+</rss>

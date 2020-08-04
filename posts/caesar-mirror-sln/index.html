@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>CaesarMirror Solution :: Ministry Of Pwning — An adventure in cyber and information security</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Problem: caesarmirror.txt
+The Clue: Caesar caesar, on the wall, who is the fairest of them all?
+Summary To me, this challenge served more as an example for working with CyberChef more than anything. Upon initial inspection of the cipher text (and the fact that the word mirror appeared in the title) it seemed obvious that there would be multiple reflections need in order to obtain the plaintext. After performing ROT13 on the input, it was obvious that the content to the right of the gap needed to be mirrored." />
+<meta name="keywords" content="ctf, warmup, cipher, cryptography, rot13, substitution, cyberchef" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/caesar-mirror-sln/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="CaesarMirror Solution :: Ministry Of Pwning">
+<meta property="og:description" content="A HacktivityCon 2020 CTF warmup crypto challenge using one of the oldest forms of cryptography." />
+<meta property="og:url" content="/posts/caesar-mirror-sln/" />
+<meta property="og:site_name" content="CaesarMirror Solution" />
+
+  <meta property="og:image" content="/">
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2020-07-31 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Ministry Of Pwning
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/posts/caesar-mirror-sln/">CaesarMirror Solution</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2020-07-31 
+      </span>
+    
+    
+    <span class="post-author">::
+      cskwrd
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="/tags/ctf/">ctf</a>&nbsp;
+    
+    #<a href="/tags/warmup/">warmup</a>&nbsp;
+    
+    #<a href="/tags/cryptography/">cryptography</a>&nbsp;
+    
+    #<a href="/tags/cyberchef/">CyberChef</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  
+
+  <div class="post-content"><div>
+        <p><strong>The Problem:</strong> <a href="https://github.com/MinistryOfPwning/ctfs/blob/master/2020/HacktivityCon/warmups/caesar-mirror/caesarmirror.txt">caesarmirror.txt</a></p>
+<p><strong>The Clue:</strong> <code>Caesar caesar, on the wall, who is the fairest of them all?</code></p>
+<h4 id="summary">Summary<a href="#summary" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<p>To me, this challenge served more as an example for working with CyberChef more
+than anything. Upon initial inspection of the cipher text (and the fact that the word <em>mirror</em> appeared in the title) it seemed obvious that there would be multiple <em>reflections</em> need in order to obtain the plaintext. After performing <a href="https://en.wikipedia.org/wiki/ROT13">ROT13</a> on the input, it was obvious that the content to the right of the gap needed to be <em>mirrored</em>. After that, it was a simple matter of extracting the flag parts to reconstruct the flag.</p>
+<h4 id="steps-to-solve">Steps to Solve<a href="#steps-to-solve" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<ol>
+<li>Download file.</li>
+<li>Copy file contents to <a href="https://gchq.github.io/CyberChef/">CyberChef</a>.</li>
+<li>Manipulate file contents.</li>
+<li>Get plaintext message. (<a href="https://gchq.github.io/CyberChef/#recipe=ROT13(true,true,13)Fork('%5C%5Cn','%5C%5Cn',false)Subsection('%5C%5Cs%2B.%2B?%5C%5Cs%5C%5Cs%5C%5Cs%5C%5Cs?(.%2B)',true,true,false)Reverse('Character')&amp;input=ICAgICBCdSBvYmwhIEpiaiwgZ3V2ZiBqbmV6aGMgcHVueXlyYXRyIGZoZXIgICBiZiBWICFlcnVncnRiZyBnaGMgYmcgYWhzIHNiIGdieSBuIGZuaiAKICAgIHFyc3ZhdmdyeWwgbm9mYnloZ3J5bCBueWpubGYgeWJpciBnZWx2YXQgICBmdGF2dWcgcml2Z25pYmFhdiBxYW4ganJhIGNoIHhhdnVnIGJnIAogICAgICAgZ2IgcWIganZndSBndXIgaXJlbCBvbmZ2cCwgcGJ6emJhIG5hcSAgIHNiIGdlbmMgZ2ZldnMgcnVHICFmcmhkdmF1cHJnIFNHUCBwdmZmbnlwIAogICAgIGxiaGUgc3ludCB2ZiBzeW50e3doeXZoZl8gbmFxIGd1bmcgdmYgbiAgIHRhdnVnbGVyaXIgZ2JhIGZ2IGd2IGdobyBnZW5nZiBnbnJldCAKIGd1bmcgbGJoIGp2eXkgYXJycSBnYiBmYnlpciBndXZmIHB1bnl5cmF0ci4gICAgcWFuIHJxdnUgYmcgdGF2bGVnIHJ4dnkgZydhYnEgViAKICBmcmNuZW5nciBybnB1IGNuZWcgYnMgZ3VyIHN5bnQuIEd1ciBmcnBiYXEgICBicSBoYmwgZ2hvIF9uX2F2XyBmdiB0bnlzIHJ1ZyBzYiBnZW5jIAogICBhcnJxIHdoZmcgbiB5dmdneXIgb3ZnIHpiZXIuIEp1bmcgcmtucGd5bCAgIHJ4bnogcWFuIGxlZyBiZyByZXJ1IHJxaHlwYXYgcmogcXloYnVmIAogICAgIGd1dmYgc3Z5eXJlIGdya2cgeWJieCB6YmVyIHJhdG50dmF0IG5hcSAgID9mcmF2eWpyYSBxcW4gcmogcXloYnVGID9yeXZ1anVnZWJqIAogICAgRnViaHlxIGpyIG5xcSBmY25wcmYgbmFxIGdlbCBuYXEgem54ciB2ZyAgIHV0aGJhciBmdiBmcmF2eSBsYW56IGpiVSA/eW5wdmVncnp6bGYgCiBnYiB6bnhyIGd1dmYgc3Z5eXJlIGdya2cgeWJieCBvcnl2cmlub3lyPyBOICAgIG4gYXZ1Z3ZqIGZlcmdncnkgc2IgcmVuaGRmIHF2eWJmIAogZnZ6Y3lyLCB6YmFiZmNucHItc2JhZyBncmtnIHN2eXIgeWJieGYgdGJicSAgIHJ1ZyBnbiBnZmJ6eW4gcmogcmVOIC5yeiBiZyB1dGhiYXIgCiAgIHJhcT8gVmcgeWJieGYgeXZ4ciB2ZyEgViB1YmNyIHZnIHZmIHRiYnEuICAgfWFidmdwcnlzcmUgZnYgdG55cyBlaGJsIHNiIGdlbmMgcWV2dWcgcnVHIApuYXEgbmcgZ3V2ZiBjYnZhZyBsYmggZnViaHlxIHVuaXIgcmlyZWxndXZhdCAgIGVicyB0bnlzIGZ2dWcgZ3Z6b2hmIGJnIHFycmEgaGJsIGdudWcgCiAgICBjYnZhZ2YuIEd1ciBvcnR2YWF2YXQgdmYgem5leHJxIGp2Z3UgZ3VyICAgLHJwbmVvIGx5ZWhwIHRhdmFyY2IgcnVnIHFhbiBrdnNyZWMgdG55cyAKICBuYXEgdmcgdmFweWhxcmYgUmF0eXZmdSBqYmVxZiBmcmNuZW5ncnEgb2wgICBseWVocCB0YXZmYnlwIG4gYXYgcWFyIGJnICxmcmVicGZlcnFhaCAKICBvZW5wci4gSmJqISBBYmogR1VORyB2ZiBuIFBHUyEgSnViIHhhcmoganIgICBmdnVnIGJnIGVydWN2cCBlbmZybnAgcnVnIHh5dnogcXloYnAgCiAgICAgICAgICAgIHJrZ3JhZz8/IEZienJiYXIgdHJnIGd1bmcgV2h5dmhmICAgIXlucXJ6IG4gbGh0IGVuZnJuUCA">recipe</a>)</li>
+<li>Extract flag: <code>flag{julius_in_a_reflection}</code></li>
+</ol>
+
+      </div></div>
+
+  
+  
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">
+        <span>2020</span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
