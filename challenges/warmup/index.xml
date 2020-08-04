@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>HacktivityCon CTF on Ministry Of Pwning</title>
-    <link>/ctfs/hacktivitycon-ctf/</link>
-    <description>Recent content in HacktivityCon CTF on Ministry Of Pwning</description>
+    <title>warmup on Ministry Of Pwning</title>
+    <link>/challenges/warmup/</link>
+    <description>Recent content in warmup on Ministry Of Pwning</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>2020</copyright>
     <lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/ctfs/hacktivitycon-ctf/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/challenges/warmup/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,18 +21,6 @@
       <description>The Problem: caesarmirror.txt
 The Clue: Caesar caesar, on the wall, who is the fairest of them all?
 Summary To me, this challenge served more as an example for working with CyberChef more than anything. Upon initial inspection of the cipher text (and the fact that the word mirror appeared in the title) it seemed obvious that there would be multiple reflections need in order to obtain the plaintext. After performing ROT13 on the input, it was obvious that the content to the right of the gap needed to be mirrored.</description>
-    </item>
-    
-    <item>
-      <title>Mobile One Solution</title>
-      <link>/posts/mobile-one-sln/</link>
-      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/mobile-one-sln/</guid>
-      <description>The Problem: Mobile One
-The Clue: The one true mobile app.
-Summary Very common intro mobile crack-me. Decompile apk using method of choice. Search strings for flag. Get flag. Nothing to it.
-This challenge could have been completed using the strings tool, but I have become used to just opening .apk&amp;rsquo;s in jadx-gui right away. Usually what I am looking for isn&amp;rsquo;t simply grep-able, so it isn&amp;rsquo;t second nature for me to grep the strings.</description>
     </item>
     
   </channel>

@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>android</title>
+      <link>/tags/android/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>cryptography</title>
       <link>/tags/cryptography/</link>
       <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
@@ -36,6 +45,24 @@
       <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/cyberchef/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mobile</title>
+      <link>/tags/mobile/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/mobile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reverse-engineering</title>
+      <link>/tags/reverse-engineering/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/reverse-engineering/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Challenges on Ministry Of Pwning</title>
+    <link>/challenges/</link>
+    <description>Recent content in Challenges on Ministry Of Pwning</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>2020</copyright>
+    <lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/challenges/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>cryptography</title>
+      <link>/challenges/cryptography/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/challenges/cryptography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mobile</title>
+      <link>/challenges/mobile/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/challenges/mobile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>warmup</title>
+      <link>/challenges/warmup/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/challenges/warmup/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
