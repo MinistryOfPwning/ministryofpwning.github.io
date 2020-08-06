@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>binwalk</title>
+      <link>/tags/binwalk/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/binwalk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>cryptography</title>
       <link>/tags/cryptography/</link>
       <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
@@ -49,11 +58,47 @@
     </item>
     
     <item>
+      <title>firmware</title>
+      <link>/tags/firmware/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/firmware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ghidra</title>
+      <link>/tags/ghidra/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/ghidra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iot</title>
+      <link>/tags/iot/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/iot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>mobile</title>
       <link>/tags/mobile/</link>
       <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/mobile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>php</title>
+      <link>/tags/php/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/php/</guid>
       <description></description>
     </item>
     

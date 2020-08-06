@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Pretty Happy Web Processor Solution :: Ministry Of Pwning — An adventure in cyber and information security</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Problem: firmware.ins (See README for instructions on extracting the image.)
+The Clue: Who knew embedded web servers ran PHP natively? And it&#39;s easy to read! Or is it?!
+Warning: This challenge&amp;rsquo;s flag reqiures the player to generate the flag by taking an MD5 hash of a defined PHP function named mb_version.
+Summary When I submitted the correct flag, I became the 9th person to solve this challenge (with a total of 12 solves at the end of the event)." />
+<meta name="keywords" content="ctf, iot, php, binwalk, firmware, ghidra" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/2020/07/pretty-happy-web-processor-solution/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Pretty Happy Web Processor Solution :: Ministry Of Pwning">
+<meta property="og:description" content="A 2020 HacktivityCon CTF IoT challenge." />
+<meta property="og:url" content="/2020/07/pretty-happy-web-processor-solution/" />
+<meta property="og:site_name" content="Pretty Happy Web Processor Solution" />
+
+  <meta property="og:image" content="/">
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2020-07-31 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Ministry Of Pwning
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/2020/07/pretty-happy-web-processor-solution/">Pretty Happy Web Processor Solution</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2020-07-31 
+      </span>
+    
+    
+    <span class="post-author">::
+      cskwrd
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="/tags/ctf/">ctf</a>&nbsp;
+    
+    #<a href="/tags/iot/">iot</a>&nbsp;
+    
+    #<a href="/tags/reverse-engineering/">reverse-engineering</a>&nbsp;
+    
+    #<a href="/tags/firmware/">firmware</a>&nbsp;
+    
+    #<a href="/tags/php/">php</a>&nbsp;
+    
+    #<a href="/tags/binwalk/">binwalk</a>&nbsp;
+    
+    #<a href="/tags/ghidra/">ghidra</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  
+
+  <div class="post-content"><div>
+        <p><strong>The Problem:</strong> <a href="https://github.com/MinistryOfPwning/ctfs/tree/master/2020/HacktivityCon/iot/pretty-happy-web-processor">firmware.ins</a> (See <a href="https://github.com/MinistryOfPwning/ctfs/blob/master/2020/HacktivityCon/iot/pretty-happy-web-processor/README.md">README</a> for instructions on extracting the image.)</p>
+<p><strong>The Clue:</strong> <code>Who knew embedded web servers ran PHP natively? And it's easy to read! Or is it?!</code></p>
+<p><strong>Warning:</strong> This challenge&rsquo;s flag reqiures the player to <em>generate</em> the flag by taking an MD5 hash of a defined PHP function named <code>mb_version</code>.</p>
+<h4 id="summary">Summary<a href="#summary" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<p>When I submitted the correct flag, I became the 9th person to solve this challenge (with a total of 12 solves at the end of the event). And that seemed rather surprising to me after knowing how straight forward the challenge is. I am not sure if players were generally uninterested in the challenge or if the barrier to entry seemed high. Despite unintentionally <a href="https://blog.securityevaluators.com/terramaster-nas-vulnerabilities-discovered-and-exploited-b8e5243e7a63">spoiling</a> this challenge for myself, I thought it was very fun.</p>
+<p>From the clue we know we are looking for a PHP file. Easy! They are in the <code>www</code> directory on the extracted file system. The only problem is all of the PHP files are encrypted, so their contents are unreadable. This part had me stumped. Honestly, if I didn&rsquo;t spoil the challenge for myself while trying to do some research; I probably wouldn&rsquo;t have solved it. Simply put, a web server uses the PHP binary to parse and execute PHP code. This means that in order to serve these encrypted PHP files, the PHP binary needs to know how to decrypt them. To determine what this process entails, open the PHP binary (from the firmware, not your local environment!) in ghidra.</p>
+<p>Ghidra identifies and analyzes the binary we provide it. When ghidra has completed its analysis, pop open the detected functions and you will see a strange function named <code>screw_aes</code>. Now, this seems like a good place to start. AES is a well-known encryption spec. Examining ghidra&rsquo;s decompiler output it doesn&rsquo;t seem like there is anything going on here. Let&rsquo;s check the references to this function. We can see that a password is passed as an argument to the <code>screw_aes</code> function. Winner, winner, chicken dinner! We can use this password to decrypt all of the PHP files.</p>
+<p>Once all of the files have been decrypted we can rely on <code>grep</code> to help us find <code>mb_version</code>. Finally, after locating the code block, we can send it through the MD5 hashing function to generate the flag.</p>
+<h4 id="steps-to-solve">Steps to Solve<a href="#steps-to-solve" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<ol>
+<li>Download firmware archive.</li>
+<li>Extract filesystem from image using <code>binwalk</code>.</li>
+<li>Open, analyze, and reverse-engineer PHP binary with <code>ghidra</code>.</li>
+<li>Using the password recovered in the previous step, we can generate an AES key: <code>3834326434326239383837366635383166306466626566623063643262356333</code></li>
+<li>Use key with OpenSSL to decrypt PHP files.</li>
+<li>Locate <code>mb_version</code> function in decrypted files.</li>
+<li>Generate flag data: <code>cat usr/www/3.0/config/version.php.dec.php | tail -n 13 | head -n 12 | md5sum</code></li>
+<li>Format flag data: <code>flag{2b1f15fa0db8460d17d573ee7d491271}</code></li>
+</ol>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="/2020/07/mobile-one-solution/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Mobile One Solution</span>
+            </a>
+        </span>
+        
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">
+        <span>2020</span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

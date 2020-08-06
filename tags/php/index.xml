@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>php on Ministry Of Pwning</title>
+    <link>/tags/php/</link>
+    <description>Recent content in php on Ministry Of Pwning</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>2020</copyright>
+    <lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pretty Happy Web Processor Solution</title>
+      <link>/2020/07/pretty-happy-web-processor-solution/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/07/pretty-happy-web-processor-solution/</guid>
+      <description>The Problem: firmware.ins (See README for instructions on extracting the image.)
+The Clue: Who knew embedded web servers ran PHP natively? And it&#39;s easy to read! Or is it?!
+Warning: This challenge&amp;rsquo;s flag reqiures the player to generate the flag by taking an MD5 hash of a defined PHP function named mb_version.
+Summary When I submitted the correct flag, I became the 9th person to solve this challenge (with a total of 12 solves at the end of the event).</description>
+    </item>
+    
+  </channel>
+</rss>

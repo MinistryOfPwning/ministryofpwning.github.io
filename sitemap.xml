@@ -8,7 +8,12 @@
   </url>
   
   <url>
-    <loc>/posts/caesar-mirror-sln/</loc>
+    <loc>/tags/binwalk/</loc>
+    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/07/caesarmirror-solution/</loc>
     <lastmod>2020-07-31T00:00:00+00:00</lastmod>
   </url>
   
@@ -43,7 +48,27 @@
   </url>
   
   <url>
+    <loc>/tags/firmware/</loc>
+    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ghidra/</loc>
+    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/ctfs/hacktivitycon-ctf/</loc>
+    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/iot/</loc>
+    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/challenges/iot/</loc>
     <lastmod>2020-07-31T00:00:00+00:00</lastmod>
   </url>
   
@@ -63,12 +88,22 @@
   </url>
   
   <url>
-    <loc>/posts/mobile-one-sln/</loc>
+    <loc>/2020/07/mobile-one-solution/</loc>
+    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/php/</loc>
     <lastmod>2020-07-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/posts/</loc>
+    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/07/pretty-happy-web-processor-solution/</loc>
     <lastmod>2020-07-31T00:00:00+00:00</lastmod>
   </url>
   

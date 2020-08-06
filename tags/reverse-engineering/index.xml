@@ -14,14 +14,26 @@
     
     <item>
       <title>Mobile One Solution</title>
-      <link>/posts/mobile-one-sln/</link>
+      <link>/2020/07/mobile-one-solution/</link>
       <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/posts/mobile-one-sln/</guid>
+      <guid>/2020/07/mobile-one-solution/</guid>
       <description>The Problem: Mobile One
 The Clue: The one true mobile app.
 Summary Very common intro mobile crack-me. Decompile apk using method of choice. Search strings for flag. Get flag. Nothing to it.
 This challenge could have been completed using the strings tool, but I have become used to just opening .apk&amp;rsquo;s in jadx-gui right away. Usually what I am looking for isn&amp;rsquo;t simply grep-able, so it isn&amp;rsquo;t second nature for me to grep the strings.</description>
+    </item>
+    
+    <item>
+      <title>Pretty Happy Web Processor Solution</title>
+      <link>/2020/07/pretty-happy-web-processor-solution/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/07/pretty-happy-web-processor-solution/</guid>
+      <description>The Problem: firmware.ins (See README for instructions on extracting the image.)
+The Clue: Who knew embedded web servers ran PHP natively? And it&#39;s easy to read! Or is it?!
+Warning: This challenge&amp;rsquo;s flag reqiures the player to generate the flag by taking an MD5 hash of a defined PHP function named mb_version.
+Summary When I submitted the correct flag, I became the 9th person to solve this challenge (with a total of 12 solves at the end of the event).</description>
     </item>
     
   </channel>
